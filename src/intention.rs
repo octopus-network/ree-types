@@ -19,6 +19,12 @@ pub struct OutputCoin {
 }
 
 #[derive(CandidType, Clone, Debug, Deserialize, Serialize, PartialEq, Eq)]
+pub struct OutPointWithCoins {
+    pub outpoint: String,
+    pub coins: Vec<CoinBalance>,
+}
+
+#[derive(CandidType, Clone, Debug, Deserialize, Serialize, PartialEq, Eq)]
 pub struct Intention {
     pub exchange_id: String,
     pub action: String,
@@ -26,7 +32,7 @@ pub struct Intention {
     pub pool_address: String,
     pub nonce: u64,
     pub pool_utxo_spend: Vec<String>,
-    pub pool_utxo_receive: Vec<String>,
+    pub pool_utxo_receive: Vec<OutPointWithCoins>,
     pub input_coins: Vec<InputCoin>,
     pub output_coins: Vec<OutputCoin>,
 }

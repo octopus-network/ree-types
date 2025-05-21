@@ -1,9 +1,11 @@
 {
     "initiator_address": "bc1qvwvcttn5dtxleu73uuyh8w759gukjr22l7z503",
+    "tx_fee_in_sats": 330,
     "intentions": [
         {
             "exchange_id": "RICH_SWAP",
             "action": "withdraw_liquidity",
+            "action_params": "",
             "pool_address": "bc1pu3pv54uxfps00a8ydle67fd3rktz090l07lyg7wadurq4h0lpjhqnet990",
             "nonce": 11,
             "pool_utxo_spend": [

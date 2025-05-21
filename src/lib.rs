@@ -88,10 +88,20 @@ mod tests {
                     .to_string(),
                 nonce: 1,
                 pool_utxo_spend: vec![],
-                pool_utxo_receive: vec![
-                    "4b004c33c5b7bce9a8f5a3a0dab48dd47e33486a8cea5f63ef558849f5604b88:1"
+                pool_utxo_receive: vec![OutPointWithCoins {
+                    outpoint: "4b004c33c5b7bce9a8f5a3a0dab48dd47e33486a8cea5f63ef558849f5604b88:1"
                         .to_string(),
-                ],
+                    coins: vec![
+                        CoinBalance {
+                            id: CoinId::btc(),
+                            value: 23_000,
+                        },
+                        CoinBalance {
+                            id: CoinId::from_str("868703:142").unwrap(),
+                            value: 959_000_000,
+                        },
+                    ],
+                }],
                 input_coins: vec![
                     InputCoin {
                         from: "bc1q8anrrgczju8zn02ww06slsfh9grm07de7r9e3k".to_string(),
@@ -174,10 +184,20 @@ mod tests {
                     "17616a9d2258c41bea2175e64ecc2e5fc45ae18be5c9003e058cb0bb85301fd8:0"
                         .to_string(),
                 ],
-                pool_utxo_receive: vec![
-                    "0cec5e1ac7688744dc7af59e8e3cd7be794b0f6dfec9357181759dc4c9c9e541:0"
+                pool_utxo_receive: vec![OutPointWithCoins {
+                    outpoint: "0cec5e1ac7688744dc7af59e8e3cd7be794b0f6dfec9357181759dc4c9c9e541:1"
                         .to_string(),
-                ],
+                    coins: vec![
+                        CoinBalance {
+                            id: CoinId::btc(),
+                            value: 45_016_346,
+                        },
+                        CoinBalance {
+                            id: CoinId::from_str("868703:142").unwrap(),
+                            value: 20_364_995_144,
+                        },
+                    ],
+                }],
                 input_coins: vec![InputCoin {
                     from: "bc1plvgrpk6mxwyppvqa5j275ujatn8qgs2dcm8m3r2w7sfkn395x6us9l5qdj"
                         .to_string(),
@@ -219,10 +239,21 @@ mod tests {
                         "17616a9d2258c41bea2175e64ecc2e5fc45ae18be5c9003e058cb0bb85301fd8:0"
                             .to_string(),
                     ],
-                    pool_utxo_receive: vec![
-                        "0cec5e1ac7688744dc7af59e8e3cd7be794b0f6dfec9357181759dc4c9c9e541:0"
-                            .to_string(),
-                    ],
+                    pool_utxo_receive: vec![OutPointWithCoins {
+                        outpoint:
+                            "0cec5e1ac7688744dc7af59e8e3cd7be794b0f6dfec9357181759dc4c9c9e541:0"
+                                .to_string(),
+                        coins: vec![
+                            CoinBalance {
+                                id: CoinId::btc(),
+                                value: 23_000,
+                            },
+                            CoinBalance {
+                                id: CoinId::from_str("840000:846").unwrap(),
+                                value: 959_000_000,
+                            },
+                        ],
+                    }],
                     input_coins: vec![InputCoin {
                         from: "bc1plvgrpk6mxwyppvqa5j275ujatn8qgs2dcm8m3r2w7sfkn395x6us9l5qdj"
                             .to_string(),
@@ -251,10 +282,21 @@ mod tests {
                         "9c3590a30d7b5d27f264a295aec6ed15c83618c152c89b28b81a460fcbb66514:1"
                             .to_string(),
                     ],
-                    pool_utxo_receive: vec![
-                        "0cec5e1ac7688744dc7af59e8e3cd7be794b0f6dfec9357181759dc4c9c9e541:2"
-                            .to_string(),
-                    ],
+                    pool_utxo_receive: vec![OutPointWithCoins {
+                        outpoint:
+                            "0cec5e1ac7688744dc7af59e8e3cd7be794b0f6dfec9357181759dc4c9c9e541:2"
+                                .to_string(),
+                        coins: vec![
+                            CoinBalance {
+                                id: CoinId::btc(),
+                                value: 23_000,
+                            },
+                            CoinBalance {
+                                id: CoinId::from_str("840106:129").unwrap(),
+                                value: 959_000_000,
+                            },
+                        ],
+                    }],
                     input_coins: vec![InputCoin {
                         from: "bc1pu3pv54uxfps00a8ydle67fd3rktz090l07lyg7wadurq4h0lpjhqnet990"
                             .to_string(),
