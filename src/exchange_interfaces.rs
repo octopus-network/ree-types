@@ -3,7 +3,7 @@ use candid::CandidType;
 use ic_stable_structures::{storable::Bound, Storable};
 use serde::{Deserialize, Serialize};
 
-use crate::{CoinBalance, IntentionSet, Pubkey, Txid, Utxo};
+use crate::{CoinBalance, Intention, Pubkey, Txid, Utxo};
 
 #[derive(CandidType, Clone, Debug, Deserialize, Serialize, PartialEq, Eq)]
 pub struct PoolBasic {
@@ -46,14 +46,23 @@ pub struct GetMinimalTxValueArgs {
 /// The response for the `get_minimal_tx_value` function.
 pub type GetMinimalTxValueResponse = u64;
 
+#[derive(CandidType, Clone, Debug, Deserialize, Serialize, PartialEq, Eq)]
+pub struct VoutWithCoins {
+    pub vout: u32,
+    pub coins: Vec<CoinBalance>,
+}
+
 /// The parameters for the `execute_tx` function.
 #[derive(CandidType, Clone, Debug, Deserialize, Serialize, PartialEq, Eq)]
 pub struct ExecuteTxArgs {
     pub psbt_hex: String,
     pub txid: Txid,
-    pub intention_set: IntentionSet,
-    pub intention_index: u32,
+    pub intention: Intention,
     pub zero_confirmed_tx_queue_length: u32,
+    // The outpoints of a certain pool that are being spent in the transaction.
+    // The outpoint string is in the format "txid:index".
+    pub pool_spend_outpoints: Vec<String>,
+    pub pool_receive: Vec<VoutWithCoins>,
 }
 
 /// The response for the `execute_tx` function.
